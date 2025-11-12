@@ -1,1 +1,227 @@
-#TestThanudet
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แนะนำตัว - ธนูเดช คำอุปละ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid #ff6b6b;
+            animation: rotate 10s linear infinite, pulse 2s ease-in-out infinite;
+            margin: 20px auto;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: white;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6b6b;
+            animation: colorChange 3s ease-in-out infinite;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff6b6b; }
+            25% { color: #4ecdc4; }
+            50% { color: #45b7d1; }
+            75% { color: #f9ca24; }
+            100% { color: #ff6b6b; }
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #555;
+            margin: 10px 0;
+            animation: shake 3s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .emoji-rain {
+            position: fixed;
+            font-size: 2em;
+            animation: fall linear infinite;
+            z-index: 999;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .sound-btn {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .sound-btn:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .fun-text {
+            font-size: 1.3em;
+            margin: 20px 0;
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-img">🎉</div>
+            <h1>ธนูเดช คำอุปละ</h1>
+            <p class="subtitle">🌟 ยินดีที่ได้รู้จักครับ! 🌟</p>
+            <p class="fun-text">✨ สวัสดีทุกคน! ผมเป็นคนสนุกสนาน รักการเรียนรู้สิ่งใหม่ๆ ✨</p>
+            
+            <div>
+                <button class="sound-btn" onclick="playSound('hello')">🔊 สวัสดี!</button>
+                <button class="sound-btn" onclick="playSound('laugh')">😄 ฮาๆๆ</button>
+                <button class="sound-btn" onclick="playSound('yay')">🎊 เย้!</button>
+                <button class="sound-btn" onclick="playSound('cool')">😎 เจ๋ง!</button>
+            </div>
+
+            <p class="fun-text" style="margin-top: 30px;">
+                💫 ขอบคุณที่แวะมาเยี่ยมชม 💫
+            </p>
+        </div>
+    </div>
+
+    <audio id="hello" src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7OihUhELTKXh8bllHAU2jdXzzn0vBSp+zPLaizsIGGS57OWhUBAKTqbi8blnHwU0iNLzz3wvBSl+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8LVkHAQ4kdfy0H4sBSh+zPDaizsIG2i98OGgTxEMUKjj8A=="></audio>
+
+    <script>
+        // สร้าง Emoji ตกลงมา
+        function createEmoji() {
+            const emojis = ['🎉', '✨', '🌟', '💫', '🎊', '🎈', '🎁', '🌈', '⭐', '💝'];
+            const emoji = document.createElement('div');
+            emoji.className = 'emoji-rain';
+            emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 5000);
+        }
+
+        setInterval(createEmoji, 300);
+
+        // เสียงสนุกๆ
+        function playSound(type) {
+            const sounds = {
+                'hello': 'สวัสดีครับ! 👋',
+                'laugh': 'ฮาๆๆๆๆ 😄',
+                'yay': 'เย้เย้! 🎉',
+                'cool': 'เจ๋งมาก! 😎'
+            };
+            
+            // แสดง Alert แบบสนุก
+            const alertBox = document.createElement('div');
+            alertBox.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                color: white;
+                padding: 30px 50px;
+                border-radius: 20px;
+                font-size: 2em;
+                z-index: 9999;
+                animation: bounce 0.5s ease-in-out;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            `;
+            alertBox.textContent = sounds[type];
+            document.body.appendChild(alertBox);
+            
+            setTimeout(() => {
+                alertBox.remove();
+            }, 1500);
+        }
+
+        // เปลี่ยนสีพื้นหลังเมื่อคลิก
+        document.addEventListener('click', function(e) {
+            if(!e.target.classList.contains('sound-btn')) {
+                createEmoji();
+            }
+        });
+    </script>
+</body>
+</html>
